@@ -1,1 +1,1 @@
-web: gunicorn munchingmeans.app:app
+web: gunicorn munching.app:app
