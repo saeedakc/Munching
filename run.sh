@@ -1,1 +1,1 @@
-FLASK_APP=Munching/app.py flask run
+FLASK_APP=munching/app.py flask run
