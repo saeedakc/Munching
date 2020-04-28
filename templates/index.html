@@ -4,24 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <title>MunchingMeans</title>
+
+ 
   <!-- Our CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+  
   <link rel="stylesheet" href="../static/css/styles.css">
   <script type= "text/javascript" src= "../static/js/choropleth.js"></script>
 </head>
 
 <body>
- 
-  <!-- Our Title -->
-  <div class="container">
+  <div class="view" style="background-image: url('https://www.netclipart.com/pp/m/116-1169784_exercise-clipart-health-wealth-healthy-body.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+
+    <!-- Our Title -->
+    <div class="container">
     <div class="ProjectTitle">
       <header>
         <h1>Food Insecurity & its Relation to Income</h1>
       </header>
     </div>
-  </div>
+    </div>
 
-  <div class="container">
+    <div class="container">
     <div class="DescHypo">
       <h2>Hypothesis & Project Description</h2>
         <hr>
@@ -34,42 +41,60 @@
         
         </p>
     </div>
-  </div>
+    </div>
 
-  <div class="container">
-  <div id = "map"></div>
+    <div class="container">
+    <div id = "map"></div>
     <div class="Info">
       <h2>United States Choropleth</h2>
       <hr>
-      <p>US Choropleth with updating layers based on user-click of one of three buttons below (purple circles). Bivalate choropleth for income vs food availability 
-        and individual choropleth for each variable</p> 
+      <p>US Choropleth with updating layers based on user-click of one of the overlays. Each layer ranks the states by one of three factors: Median Income,
+        Food Security, and Vegetable Consumption. Income data was pulled from the US Census; Food Security was pulled from the US Department of Agriculture;
+        Vegetable Consumption survey was referenced from data compiled by America's Health Rankings (.org), a project from the United Health Foundation.
+      </p> 
+      <p>According to the Dietary Guidelines for Americans, roughly half of adults in the United States suffer from one or more preventable chronic diseases 
+        related to poor diet and physical inactivity. Diets high in fruits and vegetables reduce the risk of many chronic diseases such as cardiovascular disease, 
+        type 2 diabetes and obesity. Vegetables contain essential vitamins and minerals and are an excellent source of fiber.
+      </p>
+      <p>We wanted to create this overlay in order to show similarities between low-income states, food-insecure states, and low vegetable consumption.</p>
     </div>
-  </div> 
+    </div> 
 
-  <div class="row">
+    <div class="row">
     <div class="col-md-6">
       <div class="barchart"></div>
-        <h2>Bar Chart of Food Consumption</h2>
+        <h3>Bar Chart of Food Consumption</h3>
         <hr>
-        <p>The above chart shows </p>
-        <p>Here is our interpretation of the graph above.</p>
+        <p>The above chart shows the results of a study by the USDA that tracks the supply of food available for consumption in the United States and examines 
+          consumer food preferences by consumers’ census-gathered fingerprint.</p>
+        <p>From this extensive dataset, we wanted to get a feeling for how certain "healthy" food groups compare to one another in terms of consumption. This 
+          provides further context for the above Vegetable Consumption ranking map, by which we might be able to extrapolate the consumption of other necessary
+          food groups. We chose to display Vegetables' ranking on the map because of the consistently low consumption of this food group compared to other food groups.
+        </p>
     </div>
 
     <div class="col-md-6">
       <div class="lowVhigh"></div>
-        <h2>Grouped Comparison of Food Consumption vs Income</h2>
+        <h3>Grouped Comparison of Food Consumption vs Income</h3>
         <hr>
-        <p>Insert description of the chart above.</p>
-        <p>Insert interpreation of graph above</p>
+        <p>Data gathered from USDA and Census data in the USDA's ERS study project.</p>
+        <p>In this grouped bar chart, we wanted to compare the Food Consumption rank by income level, split into low versus high income. We feel this chart gives direct
+          comparison to our hypothesis on a national level, that lower income potentially leads to unhealthy food consumption habits.
+        </p>
     </div>
-  </div>
+    </div>
 
-  <!-- D3 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
-  <!-- API key -->
-  <script type="text/javascript" src="../static/js/config.js"></script>
-  <!-- Our JavaScript -->
-  <script type="text/javascript" src="../static/js/app.js"></script>
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+
+    <!-- API key -->
+    <script type="text/javascript" src="../static/js/config.js"></script>
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="../static/js/app.js"></script>
+  </div>
 </body>
 
 </html>
