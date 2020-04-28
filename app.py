@@ -7,12 +7,12 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/munching_db"
 mongo = PyMongo(app)
 
-@app.route("/", methods=['GET'])
+@app.route("/")
 def index():
     # Return the template
     return render_template("index.html")
 
-@app.route("/medincome", methods=['GET'])
+@app.route("/medincome")
 def medincome():
     data = mongo.db.income_tble.find()
     print(type(data))
@@ -25,7 +25,7 @@ def medincome():
 
     return jsonify(alldata)
 
-@app.route("/foodAvail", methods=['GET'])
+@app.route("/foodAvail")
 def foodAvail():
     data = mongo.db.foodtbl.find()
     print(type(data))
@@ -38,7 +38,7 @@ def foodAvail():
 
     return jsonify(alldata)
 
-@app.route("/foodcons", methods=['GET'])
+@app.route("/foodcons")
 def foodcons():
     data = mongo.db.ranktble.find()
     print(type(data))
@@ -51,7 +51,7 @@ def foodcons():
 
     return jsonify(alldata)
 
-@app.route("/foodtable", methods=['GET'])
+@app.route("/foodtable")
 def foodtable():
     data = mongo.db.veggietble.find()
     print(type(data))
@@ -64,7 +64,7 @@ def foodtable():
 
     return jsonify(alldata)
 
-@app.route("/commoditycons", methods=['GET'])
+@app.route("/commoditycons")
 def commoditycons():
     data = mongo.db.cctbl.find()
     print(type(data))
